@@ -1,8 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
 
-
-
 def tracker():
     URL = "https://www.worldometers.info/coronavirus/"
 

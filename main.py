@@ -6,14 +6,11 @@ from webscrapping.webscrapper import tracker
 from webscrapping.dict import global_data_dict
 from webscrapping.dict import sorted_countries
 
-
 client = commands.Bot(command_prefix='?')
-
 
 client.global_info = tracker()
 client.global_dict = global_data_dict(client.global_info)
 client.countries_sorted = sorted_countries(client.global_info)
-
 
 
 @tasks.loop(hours=2) # updates every 2 hours 
@@ -35,9 +32,6 @@ for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}')
 
-
-    
-
 @client.event
 async def on_ready():
     update.start()
@@ -46,8 +40,6 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print('------')
-   
-
 
 @client.event
 async def on_command_error(ctx, error):

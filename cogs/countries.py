@@ -13,10 +13,8 @@ class Country(commands.Cog):
         tab = 1
         i = 0
         current_embed = discord.Embed(title=f"Countries tab: {tab}", color=0x1ABC9C)
-        for x in self.countries:
-            
-            if len(self.countries) < max_counter:
-            
+        for x in self.countries:    
+            if len(self.countries) < max_counter:        
                 current_embed = discord.Embed(title=f"Countries tab: {tab}", color=0x1ABC9C)
                 counter = i 
                 for j in self.countries[i:]:
@@ -29,8 +27,6 @@ class Country(commands.Cog):
             else:
                 current_embed.add_field(name=f'{i + 1}:', value=x, inline=True)
                 i += 1
-                
-
 
                 if i == max_counter:
                     max_counter += 18
@@ -43,9 +39,7 @@ class Country(commands.Cog):
     async def countries(self, ctx, message):
         print(message)
         try: 
-
-            message = int(message)
-            
+            message = int(message)  
                 
             await ctx.send(embed=self.countries_embed[message])
         except:
@@ -83,8 +77,6 @@ class Country(commands.Cog):
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send(f'Make sure you enter a country!')   
-
-
 
 def setup(client):
     client.add_cog(Country(client))
