@@ -1,4 +1,11 @@
+from webscrapping.webscrapper import tracker
+
+global gloal_info
+global_info = tracker()
+
 def global_data_dict(global_info):
+
+   
     global_data = {}
     info_list = ['Total Cases', 'New Cases', 'Total Deaths', 'Total Recovered', 'New Recovered', 'Active Cases', 'Serious Critical', 'Total Cases/ 1M population', 'Deaths/ 1M population', 'Total Tests', 'Total Tests', 'Tests / 1M population', 'Population' ]
 
@@ -19,3 +26,11 @@ def global_data_dict(global_info):
             info_list[12]: x[13]}   
             
     return(global_data)
+
+def sorted_countries(global_info):
+    countries_sorted = []
+    for x in global_info:
+        countries_sorted.append(x[0])
+    return countries_sorted
+
+        

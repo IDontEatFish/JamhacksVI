@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 
 
+
 def tracker():
     URL = "https://www.worldometers.info/coronavirus/"
 
@@ -26,5 +27,6 @@ def tracker():
             
             country_info.append(column.get_text())
         global_info.append(country_info[1:])
+
 
     return global_info
